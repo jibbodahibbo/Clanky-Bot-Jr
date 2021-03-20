@@ -45,7 +45,8 @@ client.once('ready', () => {
 });
 
 client.on('message', async message => {
-	if (!message.content.startsWith(prefix) || message.author.bot) return;
+	//Test Lab Only
+	if (!message.content.startsWith(prefix) || message.author.bot || message.channel.id!="741308777357377617") return;
 
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
