@@ -40,7 +40,7 @@ function congratsme(){
 
 	return gifs[Math.floor(Math.random() * gifs.length)];
 }
-*/
+
 
 
 module.exports = {
