@@ -4,9 +4,9 @@ const allowed_channels = ['733773776357163079','741308777357377617','77826682100
 //General purchase agreement
 async function purchase(user, cost){
 	console.log("puchase attempted");
-	if (user.coins>=300){
+	if (user.coins>=cost){
 		try {
-			await ClankyCoins.decrement('coins', { by:cost, where: { username:user}});
+			await ClankyCoins.decrement('coins', { by:cost, where: { username:user.username}});
 		} catch (e) {
 			console.log("err. issue with purchasing function." + e)
 		}
@@ -65,7 +65,7 @@ module.exports = {
 
 			if(args[0]=="congratsme"){
 				console.log("flag1");
-				 if(await purchase(user.username, 300)){
+				 if(await purchase(user, 300)){
 					 console.log("flag1");
 					 	return message.reply(congratsme());
 				 }else{
