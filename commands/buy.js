@@ -44,7 +44,7 @@ function congratsme(){
 
 
 module.exports = {
-	name: 'buy things',
+	name: 'buy',
 	description: 'buy some things from the bot with clankycoins',
 	async execute(message, args) {
 		console.log("hello");
