@@ -6,7 +6,7 @@ async function purchase(user, cost){
 	console.log("puchase attempted");
 	if (user.coins>=300){
 		try {
-			await ClankyCoins.decrement('coins', { by:cost, where: { username:user.username}});
+			await ClankyCoins.decrement('coins', { by:cost, where: { username:user}});
 		} catch (e) {
 			console.log("err. issue with purchasing function." + e)
 		}
@@ -62,7 +62,7 @@ module.exports = {
 
 			if(args[0]=="congratsme"){
 				console.log("flag1");
-				 if(await purchase(user, 300)){
+				 if(await purchase(user.username, 300)){
 					 console.log("flag1");
 					 	return message.reply(congratsme());
 				 }else{
