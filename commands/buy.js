@@ -52,6 +52,7 @@ module.exports = {
 		//Attempt to find the user who is purchasing.
 		try {
 			const user = await ClankyCoins.findOne({ where: { username:message.author.username } });
+			console.log(user.username,message.author.username);
 		}
 		//If they don't exist, let them know they don't exist yet and to type !clankycoins.
 		catch (e) {
@@ -61,7 +62,7 @@ module.exports = {
 
 			if(args[0]=="congratsme"){
 				console.log("flag1");
-				 if(await purchase(message.username, 300)){
+				 if(await purchase(user.username, 300)){
 					 console.log("flag1");
 					 	return message.reply(congratsme());
 				 }else{
