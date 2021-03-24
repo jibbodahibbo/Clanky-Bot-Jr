@@ -45,7 +45,6 @@ async function getPurchaser(p){
 //Attempt to find the user who is purchasing.
 		try {
 			const user = await ClankyCoins.findOne({ where: { username:p} });
-			console.log(user.username,message.author.username);
 			return user;
 		}
 		//If they don't exist, let them know they don't exist yet and to type !clankycoins.
