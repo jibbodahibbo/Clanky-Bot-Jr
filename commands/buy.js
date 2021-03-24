@@ -41,7 +41,19 @@ function congratsme(){
 	return gifs[Math.floor(Math.random() * gifs.length)];
 }
 
-
+async getPurchaser(p){
+//Attempt to find the user who is purchasing.
+		try {
+			const user = await ClankyCoins.findOne({ where: { username:p} });
+			console.log(user.username,message.author.username);
+			return user;
+		}
+		//If they don't exist, let them know they don't exist yet and to type !clankycoins.
+		catch (e) {
+			console.log(e);
+			return message.reply('You may not be in the Clanky Coins Ledger, type !clankycoins to keep track of your coins.');
+			}
+}
 
 module.exports = {
 	name: 'buy',
@@ -49,17 +61,8 @@ module.exports = {
 	async execute(message, args) {
 		console.log("hello");
 
-		//Attempt to find the user who is purchasing.
-		const user;
-		try {
-			user = await ClankyCoins.findOne({ where: { username:message.author.username } });
-			console.log(user.username,message.author.username);
-		}
-		//If they don't exist, let them know they don't exist yet and to type !clankycoins.
-		catch (e) {
-			console.log(e);
-			return message.reply('You may not be in the Clanky Coins Ledger, type !clankycoins to keep track of your coins.');
-			}
+		let user=await getPurchaser(message.author.username);
+
 
 			if(args[0]=="congratsme"){
 				console.log("flag1");
