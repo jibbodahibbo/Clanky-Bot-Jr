@@ -41,7 +41,7 @@ function congratsme(){
 	return gifs[Math.floor(Math.random() * gifs.length)];
 }
 
-async getPurchaser(p){
+async function getPurchaser(p){
 //Attempt to find the user who is purchasing.
 		try {
 			const user = await ClankyCoins.findOne({ where: { username:p} });
