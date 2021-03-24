@@ -47,7 +47,7 @@ module.exports = {
 	name: 'buy things',
 	description: 'buy some things from the bot with clankycoins',
 	async execute(message, args) {
-
+		console.log("hello");
 
 		//Attempt to find the user who is purchasing.
 		try {
@@ -60,9 +60,12 @@ module.exports = {
 			}
 
 			if(args[0]=="congratsme"){
+				console.log("flag1");
 				 if(await purchase(user.username, 300)){
+					 console.log("flag1");
 					 	return message.reply(congratsme());
 				 }else{
+					 console.log("flag3");
 					 return message.reply('You only have '+ user.coins + ' Clanky Coins.')
 				 }
 
