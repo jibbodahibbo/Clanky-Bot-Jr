@@ -61,7 +61,7 @@ module.exports = {
 
 			if(args[0]=="congratsme"){
 				console.log("flag1");
-				 if(await purchase(user.username, 300)){
+				 if(await purchase(message.username, 300)){
 					 console.log("flag1");
 					 	return message.reply(congratsme());
 				 }else{
