@@ -50,8 +50,9 @@ module.exports = {
 		console.log("hello");
 
 		//Attempt to find the user who is purchasing.
+		const user;
 		try {
-			const user = await ClankyCoins.findOne({ where: { username:message.author.username } });
+			user = await ClankyCoins.findOne({ where: { username:message.author.username } });
 			console.log(user.username,message.author.username);
 		}
 		//If they don't exist, let them know they don't exist yet and to type !clankycoins.
