@@ -49,9 +49,6 @@ module.exports = {
 	async execute(message, args) {
 
 
-		if (!allowed_channels.includes(message.channel.id) && message.guild != null){
-			return null;
-		}
 		//Attempt to find the user who is purchasing.
 		try {
 			const user = await ClankyCoins.findOne({ where: { username:message.author.username } });
