@@ -17,7 +17,27 @@ async function purchase(user, cost){
 }
 
 //random gif selector.
-function congratsme(user){
+function getJoke(user){
+	let jokes=["Why is Marky Dubois good in the outfield? || Because his frog is great at catching flies.||",
+	"Pete Wheeler kept wondered why the ball kept getting bigger and bigger. ||Then it hit him.||",
+	"Where does Tony Delveccio go when he needs a new uniform? ||New Jersey.||",
+	"What runs around a baseball field but never moves? ||A fence, but also Jose Meisenheimer||",
+	"On where does Dante Robinson eat his lunch? || Home Plate.||",
+	"Why couldn’t Kimmy Eckman get soda pop at the double header? ||Because the home team lost the opener.||"
+
+	]
+
+	let rjokes=jokes[Math.floor(Math.random() * gifs.length)];
+	let e={
+	    "title": "I've got a good one "+user +"!",
+	    "color": 10038562,
+	    "description": rjokes
+	  }
+		return e;
+}
+
+//random gif selector.
+function congratsMe(user){
 	let gifs=[
 		'https://media0.giphy.com/media/13ggM8kgGhrxao/giphy.gif',
 		'https://media3.giphy.com/media/3PxTfzLmaquPgZf49V/200.gif',
@@ -40,16 +60,14 @@ function congratsme(user){
 
 	let rgif=gifs[Math.floor(Math.random() * gifs.length)];
 	let e={
-	    "title": "Congratulations! "+user,
+	    "title": "Congratulations "+user +"!",
 	    "color": 10038562,
 	    "description": "You have redeemed a congratulatory gif for 300 CC.",
 	    "image": {
 	      "url":rgif
 	    }
 	  }
-	
-
-	return e;
+		return e;
 }
 
 async function getPurchaser(p){
@@ -78,12 +96,22 @@ module.exports = {
 				console.log("flag1");
 				 if(await purchase(user, 300)){
 					 console.log("flag1");
-					 	return message.reply({ embed:congratsme(user.username)});
+					 	return message.reply({ embed:congratsMe(user.username)});
 				 }else{
 					 console.log("flag3");
 					 return message.reply('You only have '+ user.coins + ' Clanky Coins.')
 				 }
+			}
 
+			if(args[0]=="joke"){
+				console.log("flag1");
+				 if(await purchase(user, 1000)){
+					 console.log("flag1");
+						return message.reply({ embed:getJoke(user.username)});
+				 }else{
+					 console.log("flag3");
+					 return message.reply('You only have '+ user.coins + ' Clanky Coins.')
+				 }
 			}
 
 	}
