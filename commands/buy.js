@@ -40,15 +40,14 @@ function congratsme(user){
 
 	let rgif=gifs[Math.floor(Math.random() * gifs.length)];
 	let e={
-	  "embed": {
 	    "title": "Congratulations! "+user,
 	    "color": 10038562,
-	    "description": "You have redeemed congratsme for 300 CC.",
+	    "description": "You have redeemed a congratulatory gif for 300 CC.",
 	    "image": {
 	      "url":rgif
 	    }
 	  }
-	}
+	
 
 	return e;
 }
