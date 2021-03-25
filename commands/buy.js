@@ -17,7 +17,7 @@ async function purchase(user, cost){
 }
 
 //random gif selector.
-function congratsme(){
+function congratsme(user){
 	let gifs=[
 		'https://media0.giphy.com/media/13ggM8kgGhrxao/giphy.gif',
 		'https://media3.giphy.com/media/3PxTfzLmaquPgZf49V/200.gif',
@@ -38,7 +38,19 @@ function congratsme(){
 		'https://thumbs.gfycat.com/BreakableAdorableFritillarybutterfly.webp'
 	]
 
-	return gifs[Math.floor(Math.random() * gifs.length)];
+	let rgif=gifs[Math.floor(Math.random() * gifs.length)];
+	let e={
+	  "embed": {
+	    "title": "Congratulations! "+user,
+	    "color": 10038562,
+	    "description": "You have redeemed congratsme for 300 CC.",
+	    "image": {
+	      "url":rgif
+	    }
+	  }
+	}
+
+	return e;
 }
 
 async function getPurchaser(p){
@@ -67,7 +79,7 @@ module.exports = {
 				console.log("flag1");
 				 if(await purchase(user, 300)){
 					 console.log("flag1");
-					 	return message.reply(congratsme());
+					 	return message.reply({ embed:congratsme(user.username)});
 				 }else{
 					 console.log("flag3");
 					 return message.reply('You only have '+ user.coins + ' Clanky Coins.')
