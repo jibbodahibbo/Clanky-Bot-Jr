@@ -27,7 +27,7 @@ function getJoke(user){
 
 	]
 
-	let rjokes=jokes[Math.floor(Math.random() * gifs.length)];
+	let rjokes=jokes[Math.floor(Math.random() * jokes.length)];
 	let e={
 	    "title": "I've got a good one "+user +"!",
 	    "color": 10038562,
