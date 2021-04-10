@@ -23,8 +23,12 @@ function getJoke(user){
 	"Where does Tony Delveccio go when he needs a new uniform? ||New Jersey.||",
 	"What runs around a baseball field but never moves? ||A fence, but also Jose Meisenheimer||",
 	"On where does Dante Robinson eat his lunch? || Home Plate.||",
-	"Why couldn’t Kimmy Eckman get soda pop at the double header? ||Because the home team lost the opener.||"
-
+	"Why couldn’t Kimmy Eckman get soda  pop at the double header? ||Because the home team lost the opener.||",
+	"Once Ronny Dobbs was pitching so bad, ||the crowd started singing Take Him Out of The Ball Game!||",
+	"Lisa Crockett saw a giant mouse so she tried hitting it with a baseball bat,|| now she has a lifetime ban from Disneyland"||,
+	"What is Sally Dobbs favorite book? ||Artemis Fowl||",
+	"Jocinda Smith's nickname",
+	"What's Jorge Garcias favorite Movie? || Money Ball ||"
 	]
 
 	let rjokes=jokes[Math.floor(Math.random() * jokes.length)];
@@ -70,6 +74,31 @@ function congratsMe(user){
 		return e;
 }
 
+function insult(user,other){
+	let adjs=[
+	'Blue',
+	'Crazy',
+	'Green',
+	'Humongous',
+	'Junior',
+	'Little',
+	'Mighty',
+	'Red',
+	'Super-Duper',
+	'White',
+	];
+
+
+let radj=adjs[Math.floor(Math.random() * adjs.length)];
+let e={
+		"title": user+', you have redeemed an insult for 2,000 CC!',
+		"color": 10038562,
+		"description": '<@'+other+'>',
+		}
+	}
+	return e;
+}
+
 async function getPurchaser(p){
 //Attempt to find the user who is purchasing.
 		try {
@@ -93,23 +122,25 @@ module.exports = {
 
 
 			if(args[0]=="congratsme"){
-				console.log("flag1");
 				 if(await purchase(user, 300)){
-					 console.log("flag1");
 					 	return message.reply({ embed:congratsMe(user.username)});
 				 }else{
-					 console.log("flag3");
 					 return message.reply('You only have '+ user.coins + ' Clanky Coins.')
 				 }
 			}
 
 			if(args[0]=="joke"){
-				console.log("flag1");
 				 if(await purchase(user, 1000)){
-					 console.log("flag1");
 						return message.reply({ embed:getJoke(user.username)});
 				 }else{
-					 console.log("flag3");
+					 return message.reply('You only have '+ user.coins + ' Clanky Coins.')
+				 }
+			}
+
+			if(args[0]=="insult"){
+				 if(await purchase(user, 2000)){
+						return message.reply({ embed:insult(user.username,message.mentions.users.first().id});
+				 }else{
 					 return message.reply('You only have '+ user.coins + ' Clanky Coins.')
 				 }
 			}
