@@ -25,7 +25,7 @@ function getJoke(user){
 	"On where does Dante Robinson eat his lunch? || Home Plate.||",
 	"Why couldn’t Kimmy Eckman get soda  pop at the double header? ||Because the home team lost the opener.||",
 	"Once Ronny Dobbs was pitching so bad, ||the crowd started singing Take Him Out of The Ball Game!||",
-	"Lisa Crockett saw a giant mouse so she tried hitting it with a baseball bat,|| now she has a lifetime ban from Disneyland"||,
+	"Lisa Crockett saw a giant mouse so she tried hitting it with a baseball bat,|| now she has a lifetime ban from Disneyland||"",
 	"What is Sally Dobbs favorite book? ||Artemis Fowl||",
 	"Jocinda Smith's nickname",
 	"What's Jorge Garcias favorite Movie? || Money Ball ||"
@@ -103,10 +103,11 @@ function insult(user,other){
 
 
 let radj=adjs[Math.floor(Math.random() * adjs.length)];
+let rnoun=nouns[Math.floor(Math.random() * nouns.length)];
 let e={
 		"title": user+', you have redeemed an insult for 2,000 CC!',
 		"color": 10038562,
-		"description": '<@'+other+'>',
+		"description": '<@'+other+'> is a '+radj+' '+rnoun+'.',
 		}
 	}
 	return e;
