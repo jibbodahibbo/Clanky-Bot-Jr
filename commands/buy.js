@@ -158,5 +158,12 @@ module.exports = {
 				 }
 			}
 
+			if(args[0]=="pennant"){
+				 if(await purchase(user, 10000)){
+						return message.reply("You have purchased a pennant for 10,000 CC! <@187776456519057409> will contact you shortly!");
+				 }else{
+					 return message.reply('You only have '+ user.coins + ' Clanky Coins.')
+				 }
+			}
 	}
 };
