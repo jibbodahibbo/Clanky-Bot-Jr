@@ -109,7 +109,6 @@ let e={
 		"color": 10038562,
 		"description": '<@'+other+'> is a '+radj+' '+rnoun+'.',
 		}
-	}
 	return e;
 }
 
