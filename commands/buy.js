@@ -105,9 +105,9 @@ function insult(user,other){
 let radj=adjs[Math.floor(Math.random() * adjs.length)];
 let rnoun=nouns[Math.floor(Math.random() * nouns.length)];
 let e={
-		"title": user+', you have redeemed an insult for 2,000 CC!',
-		"color": 10038562,
-		"description": '<@'+other+'> is a '+radj+' '+rnoun+'.',
+			"title": user+', you have redeemed an insult for 2,000 CC!',
+			"color": 10038562,
+			"description": '<@'+other+'> is a '+radj+' '+rnoun+'.',
 		}
 	return e;
 }
@@ -152,7 +152,7 @@ module.exports = {
 
 			if(args[0]=="insult"){
 				 if(await purchase(user, 2000)){
-						return message.reply({ embed:insult(user.username,message.mentions.users.first()});
+						return message.reply({ embed:insult(user.username,message.mentions.users.first())});
 				 }else{
 					 return message.reply('You only have '+ user.coins + ' Clanky Coins.')
 				 }
