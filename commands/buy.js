@@ -87,6 +87,19 @@ function insult(user,other){
 	'Super-Duper',
 	'White',
 	];
+	let nouns=[
+		"Lug",
+		"Knucklhead",
+		"Lunkhead",
+		"Pud",
+		"Scab",
+		"Schmuck",
+		"Wacko",
+		"Yob",
+		"Fart Knocker",
+		"Dingus",
+		"Dweeb"
+	];
 
 
 let radj=adjs[Math.floor(Math.random() * adjs.length)];
@@ -139,7 +152,7 @@ module.exports = {
 
 			if(args[0]=="insult"){
 				 if(await purchase(user, 2000)){
-						return message.reply({ embed:insult(user.username,message.mentions.users.first().id});
+						return message.reply({ embed:insult(user.username,message.mentions.users.first()});
 				 }else{
 					 return message.reply('You only have '+ user.coins + ' Clanky Coins.')
 				 }
